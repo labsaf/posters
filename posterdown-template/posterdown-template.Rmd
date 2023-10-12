@@ -7,33 +7,51 @@ poster_height: "120cm"
 poster_width: "90cm"
 column_numbers: 3
 author:
-  - name: '**W. Brent Thorne**'
+  - name: '**S. Pizarro**'
+    affil: 1,2
+  - name: '**N. Picrope**'
+    affil: 3
+  - name: '**D. Figueroa**'
     affil: 1
-    main: true
-    orcid: '0000-0002-1099-3857'
-    twitter: brentthorne18 
-    email: bthorne2@brocku.ca
-  - name: Another G. Contributor
-    affil: 2
-    main: true
-    email: 'ag.con@posterdown.net'
-  - name: Person Three
-    affil: 3
-  - name: Person Four
-    affil: 2
-  - name: Person Five
-    affil: 3
-  - name: Person Six
-    affil: 3
-  - name: A. Seventh Author
-    affil: 2
+  - name: '**C. Carbajal**'
+    affil: 4
+  - name: '**M. Quispe**'
+    affil: 5
+  - name: '**J. Vera**'
+    affil: 5
+  - name: '**L. Alejandro**'
+    affil: 5
+  - name: '**L. Achallma**'
+    affil: 5
+  - name: '**I. Gonzalez**'
+    affil: 5
+  - name: '**W. Salazar**'
+    affil: 6
+  - name: '**H. Loayza**'
+    affil: 7,8
+  - name: '**J. Cruz**'
+    affil: 4
+  - name: '**C. Arbizu**'
+    affil: 6,9           
 affiliation:
   - num: 1
-    address: Department of Earth Science, Brock University
+    address: Dirección de Desarrollo Tecnológico Agrario, Instituto Nacional de Innovación Agraria (INIA), Huancayo, Junin, Peru
   - num: 2
-    address: Department of Graphics and Layouts, University of Posters; Canada
+    address: Facultad de Zootecnia, Andean Ecosystem Research Group, Universidad Nacional del Centro del Perú, Huancayo, Junin, Peru
   - num: 3
-    address: Another Institute of a place where work gets done, Earth, Milky Way
+    address: Department of Earth and Ocean Sciences, University of North Carolina Wilmington, S College Rd., Wilmington, NC, USA
+  - num: 4
+    address: Dirección de Supervisión y Monitoreo en las Estaciones Experimentales Agrarias, Instituto Nacional de Innovación Agraria (INIA), Av. La Molina, Lima, Peru
+  - num: 5
+    address: Dirección de Supervisión y Monitoreo en las Estaciones Experimentales Agrarias, Instituto Nacional de Innovación Agraria (INIA), Santa Ana, Huancayo, Junin, Peru
+  - num: 6
+    address: Dirección de Desarrollo Tecnológico Agrario, Instituto Nacional de Innovación Agraria (INIA), Av. La Molina, Lima, Peru
+  - num: 7
+    address: International Potato Center (CIP), Headquarters P.O. Box, Lima, Peru
+  - num: 8
+    address: Programa Académico de Ingeniería Ambiental, Facultad de Ingeniería, Universidad de Huánuco, Huánuco, Peru
+  - num: 9
+    address: Facultad de Ingeniería y Ciencias Agrarias, Universidad Nacional Toribio Rodríguez de Mendoza de Amazonas (UNTRM), Chachapoyas, Amazonas, Peru.   
 main_findings: "<img src='resources/header.png'>"
 logocenter_name: https&#58;//raw.githubusercontent.com/labsaf/posterdown-template/main/posterdown-template/resources/footer.jpg
 output: 
@@ -83,21 +101,20 @@ options(knitr.table.format = "html")
 
 # Introducción
 
-This is the `posterdown_betterport` template for the {posterdown} package! I was inspired by the twitter thread of [Mike Morrison](https://mobile.twitter.com/mikemorrison/status/1110191245035479041) and wanted to apply the `#betterposter` concept to the reproducible (yet simple to use) functionality of the {posterdown} package [@R-posterdown]. If you're not an R user don't sweat as you do **NOT** need to use it at all! Feel free to use only the Markdown functionality of this package :)
+El objetivo de este trabajo es explorar la viabilidad de diseñar e implementar un enfoque de mapeo digital del suelo utilizando la plataforma Google Earth Engine (GEE) utilizando imágenes de reflectancia de alta resolución derivadas de una cámara térmica infrarroja y multiespectral (modelo Altum; MicaSense Inc.) volado a bordo de un UAV, en comparación con mediciones in situ de las propiedades físico-químicas del suelo (cal (%), arcilla (%), arena (%), conductividad eléctrica (CE) (mS/m), nitrógeno (N) (ppm) , fósforo (P) (ppm), potasio (K) (ppm), materia orgánica (MO) (%), aluminio (Al) (ppm) y pH). En consecuencia, teníamos las siguientes hipótesis: (i) es factible implementar imágenes UAV y ML para predecir las propiedades del suelo en la nube usando Google Earth Engine, (ii) el uso de índices espectrales y DSM mejoran la precisión de los valores predichos del suelo propiedades, (iii) los modelos ML son eficientes en la gestión de múltiples conjuntos de datos de predictores para realizar mapas de propiedades del suelo espacialmente consistentes.
 
 ```{r, include=FALSE}
 knitr::write_bib(c('posterdown', 'rmarkdown','pagedown'), 'packages.bib')
 ```
 
-## Objectivos
+## Objectivo
 
-1. Pick a template layout.
-2. Write/ create your poster content distraction free.
-3. Let posterdown do its thing!
+1. explorar la viabilidad de diseñar e implementar un enfoque de mapeo digital del suelo utilizando la plataforma Google Earth Engine (GEE) utilizando imágenes de reflectancia de alta resolución derivadas de una cámara térmica infrarroja y multiespectral.
+2. predecir las propiedades del suelo en la nube utilizando Google Earth Engine, (ii) el uso de índices espectrales y DSM mejoran la precisión de los valores predichos de las propiedades del suelo, (iii) los modelos ML son eficientes en la gestión de múltiples conjuntos de datos de predictores para realizar propiedades del suelo espacialmente consistentes mapas.
 
-# Metódos
+# Metodología
 
-I will show here how to include poster elements that may be useful, such as an equation using mathjax:
+Para desarrollar los modelos de distribución de parámetros espaciales del suelo, utilizamos los 14 índices espectrales multiespectrales comúnmente utilizados en el análisis de vegetación y suelo, que se muestran en la Tabla 1. Estos índices incluyen índices de vegetación, suelo y agua. Para cada punto muestreado se utilizó un buffer circular de 0.5 m de diámetro, donde los valores de reflectancia de cada píxel se convierten en una réplica de observación que contrasta con el valor de concentración del parámetro de interés del suelo. Los índices de vegetación se calcularon a través de las diferentes combinaciones de reflectancia y se compilaron como predictores junto con las bandas espectrales puras.
 
 $$
 E = mc^2
@@ -109,7 +126,7 @@ To get a better understanding of how to include features like these please refer
 
 **_Now on to the results!_**
 
-# Resultados
+# Resultados y Discusión
 
 Here you may have some figures to show off, bellow I have made a scatterplot with the infamous Iris dataset and I can even reference to the figure automatically like this, `Figure \@ref(fig:irisfigure)`, Figure \@ref(fig:irisfigure).
 
@@ -147,36 +164,15 @@ knitr::kable(
   escape = FALSE)
 ```
 
+# Conclusiones
+
+Nuestro trabajo contribuye a la ciencia de vanguardia actual que destaca los beneficios del uso de imágenes de alta resolución recopiladas mediante sensores multiespectrales a bordo de vehículos aéreos no tripulados para agricultura de precisión y sistemas de información del suelo altamente detallados. Demostramos cómo los algoritmos de aprendizaje automático calculados en la nube utilizando Google Earth Engine pueden ser una solución para hacer que el procesamiento sea más accesible sin el uso de servidores físicos, para predecir las propiedades del suelo a un nivel detallado con resultados satisfactorios. Descubrimos que los índices multiespectrales derivados de UAV pueden mejorar la predicción de las propiedades del suelo cuando se combinan con modelos digitales de superficie construidos a partir de imágenes de UAV y que los predictores más importantes son SRI, GNDWI, NDWI y ExG. Por último, al comparar tres técnicas de aprendizaje automático (CART, RF y XGBoost), demostramos que los modelos CART funcionan mejor y son más consistentes espacialmente que los modelos RF y XGBoost para la mayoría de las propiedades del suelo que investigamos.
+
 # Referencias
 
 To reference a citation you can add your `.bib` file to the working directory and name it in the YAML metadata or generate an automated one as done here, then you only need to reference the label value in the `.bib` file. For example this package is built on top of the wonderful {pagedown} package and I will cite it at the end of this sentance using this in the rmd `[@R-pagedown]` [@R-pagedown].
 
 To get a better understanding of how to include features like these please refer to the {posterdown} [wiki](https://github.com/posterdown/wiki).
-
-
-To reference a citation you can add your `.bib` file to the working directory and name it in the YAML metadata or generate an automated one as done here, then you only need to reference the label value in the `.bib` file. For example this package is built on top of the wonderful {pagedown} package and I will cite it at the end of this sentance using this in the rmd `[@R-pagedown]` [@R-pagedown].
-
-To get a better understanding of how to include features like these please refer to the {posterdown} [wiki](https://github.com/posterdown/wiki).
-
-
-To reference a citation you can add your `.bib` file to the working directory and name it in the YAML metadata or generate an automated one as done here, then you only need to reference the label value in the `.bib` file. For example this package is built on top of the wonderful {pagedown} package and I will cite it at the end of this sentance using this in the rmd `[@R-pagedown]` [@R-pagedown].
-
-To get a better understanding of how to include features like these please refer to the {posterdown} [wiki](https://github.com/posterdown/wiki).
-
-
-To reference a citation you can add your `.bib` file to the working directory and name it in the YAML metadata or generate an automated one as done here, then you only need to reference the label value in the `.bib` file. For example this package is built on top of the wonderful {pagedown} package and I will cite it at the end of this sentance using this in the rmd `[@R-pagedown]` [@R-pagedown].
-
-To get a better understanding of how to include features like these please refer to the {posterdown} [wiki](https://github.com/posterdown/wiki).
-
-To reference a citation you can add your `.bib` file to the working directory and name it in the YAML metadata or generate an automated one as done here, then you only need to reference the label value in the `.bib` file. For example this package is built on top of the wonderful {pagedown} package and I will cite it at the end of this sentance using this in the rmd `[@R-pagedown]` [@R-pagedown].
-
-To get a better understanding of how to include features like these please refer to the {posterdown} [wiki](https://github.com/posterdown/wiki).
-
-To reference a citation you can add your `.bib` file to the working directory and name it in the YAML metadata or generate an automated one as done here, then you only need to reference the label value in the `.bib` file. For example this package is built on top of the wonderful {pagedown} package and I will cite it at the end of this sentance using this in the rmd `[@R-pagedown]` [@R-pagedown].
-
-To get a better understanding of how to include features like these please refer to the {posterdown} [wiki](https://github.com/posterdown/wiki).
-
-To reference a citation you can add your `.bib` file to the working directory and name it in the YAML metadata or generate an automated one as done here, then you only need to reference the label value in the `.bib` file. For example this package is built on top of the wonderful {pagedown} package and I will cite it at the end of this sentance using this in the rmd `[@R-pagedown]` [@R-pagedown].
 
 
 
