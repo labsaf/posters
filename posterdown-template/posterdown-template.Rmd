@@ -1,6 +1,6 @@
 ---
-main_topsize: 0.1     
-main_bottomsize: 0.1
+main_topsize: 0.115
+main_bottomsize: 0.105
 title: '**Implementación de computación en la nube para el mapeo digital de propiedades de suelos agrícolas a partir de imágenes multiespectrales UAV de alta resolución**'
 title_textsize: "60pt"
 poster_height: "120cm"
@@ -34,9 +34,7 @@ affiliation:
     address: Department of Graphics and Layouts, University of Posters; Canada
   - num: 3
     address: Another Institute of a place where work gets done, Earth, Milky Way
-main_findings:
-  - "<img src='resources/header.jpg' height='500px' align='center'/>"
-main_textsize: '100px'
+main_findings: "<img src='resources/header.png'>"
 logocenter_name: https&#58;//raw.githubusercontent.com/labsaf/posterdown-template/main/posterdown-template/resources/footer.jpg
 output: 
   posterdown::posterdown_betterport:
@@ -47,7 +45,7 @@ bibliography: packages.bib
 link-citations: true
 ---
 
-```{css}
+<style>
 #main-img-center {
     width: 100%;
     left:0;
@@ -60,9 +58,17 @@ link-citations: true
     background-image: linear-gradient(#fff 50%,#fff);
 }
 
+.main p{
+    margin-left: 0;
+}
 
-```
+.main_bottom {
+    background-color: #fff;
+    color: #fff;
+    background-image: linear-gradient(#fff 50%,#fff);
+}
 
+</style>
 
 ```{r, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE,
@@ -141,3 +147,28 @@ knitr::kable(
 ```
 
 # Referencias
+
+To reference a citation you can add your `.bib` file to the working directory and name it in the YAML metadata or generate an automated one as done here, then you only need to reference the label value in the `.bib` file. For example this package is built on top of the wonderful {pagedown} package and I will cite it at the end of this sentance using this in the rmd `[@R-pagedown]` [@R-pagedown].
+
+To get a better understanding of how to include features like these please refer to the {posterdown} [wiki](https://github.com/posterdown/wiki).
+
+
+To reference a citation you can add your `.bib` file to the working directory and name it in the YAML metadata or generate an automated one as done here, then you only need to reference the label value in the `.bib` file. For example this package is built on top of the wonderful {pagedown} package and I will cite it at the end of this sentance using this in the rmd `[@R-pagedown]` [@R-pagedown].
+
+To get a better understanding of how to include features like these please refer to the {posterdown} [wiki](https://github.com/posterdown/wiki).
+
+
+To reference a citation you can add your `.bib` file to the working directory and name it in the YAML metadata or generate an automated one as done here, then you only need to reference the label value in the `.bib` file. For example this package is built on top of the wonderful {pagedown} package and I will cite it at the end of this sentance using this in the rmd `[@R-pagedown]` [@R-pagedown].
+
+To get a better understanding of how to include features like these please refer to the {posterdown} [wiki](https://github.com/posterdown/wiki).
+
+
+To reference a citation you can add your `.bib` file to the working directory and name it in the YAML metadata or generate an automated one as done here, then you only need to reference the label value in the `.bib` file. For example this package is built on top of the wonderful {pagedown} package and I will cite it at the end of this sentance using this in the rmd `[@R-pagedown]` [@R-pagedown].
+
+To get a better understanding of how to include features like these please refer to the {posterdown} [wiki](https://github.com/posterdown/wiki).
+
+To reference a citation you can add your `.bib` file to the working directory and name it in the YAML metadata or generate an automated one as done here, then you only need to reference the label value in the `.bib` file. For example this package is built on top of the wonderful {pagedown} package and I will cite it at the end of this sentance using this in the rmd `[@R-pagedown]` [@R-pagedown].
+
+To get a better understanding of how to include features like these please refer to the {posterdown} [wiki](https://github.com/posterdown/wiki).
+
+
