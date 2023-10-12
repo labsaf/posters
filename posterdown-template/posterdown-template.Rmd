@@ -43,11 +43,12 @@ output:
     number_sections: false
 bibliography: packages.bib
 link-citations: true
+#knit: pagedown::chrome_print
 ---
 
 <style>
 #main-img-center {
-    width: 100%;
+    width: 99%;
     left:0;
     bottom:0;
     position: absolute;
