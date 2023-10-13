@@ -59,11 +59,13 @@ output:
     self_contained: false
     pandoc_args: --mathjax
     number_sections: false
-bibliography: packages.bib
+bibliography: references.bib
+csl: mdpi.csl
 link-citations: true
 #knit: pagedown::chrome_print
 ---
 
+```{=html}
 <style>
 #main-img-center {
     width: 99%;
@@ -88,7 +90,7 @@ link-citations: true
 }
 
 </style>
-
+```
 ```{r, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE,
                       warning = FALSE,
@@ -101,7 +103,7 @@ options(knitr.table.format = "html")
 
 # Introducción
 
-El objetivo de este trabajo es explorar la viabilidad de diseñar e implementar un enfoque de mapeo digital del suelo utilizando la plataforma Google Earth Engine (GEE) utilizando imágenes de reflectancia de alta resolución derivadas de una cámara térmica infrarroja y multiespectral (modelo Altum; MicaSense Inc.) volado a bordo de un UAV, en comparación con mediciones in situ de las propiedades físico-químicas del suelo (cal (%), arcilla (%), arena (%), conductividad eléctrica (CE) (mS/m), nitrógeno (N) (ppm) , fósforo (P) (ppm), potasio (K) (ppm), materia orgánica (MO) (%), aluminio (Al) (ppm) y pH). En consecuencia, teníamos las siguientes hipótesis: (i) es factible implementar imágenes UAV y ML para predecir las propiedades del suelo en la nube usando Google Earth Engine, (ii) el uso de índices espectrales y DSM mejoran la precisión de los valores predichos del suelo propiedades, (iii) los modelos ML son eficientes en la gestión de múltiples conjuntos de datos de predictores para realizar mapas de propiedades del suelo espacialmente consistentes.
+Los suelos agrícolas son sistemas heterogéneos importantes dentro del contexto de la producción agrícola, caracterizados por distintas propiedades físicas y químicas que afectan el desarrollo y crecimiento de los cultivos. La información detallada de los suelos permite delimitar unidades homogéneas de gestión, de las que se extrae la información necesaria para garantizar la salud de los cultivos. Dicha información se puede adquirir mediante análisis de laboratorio, aunque recientemente, se han aplicado alternativas como la teledetección que nos permite evaluar el potencial productivo agrícola reduciendo costo, tiempo y a mayor escala [@das2015; @Srinet2020]. Estas tecnologías se apoyan en el uso de sistemas de información geográfica (SIG), Sistemas de Posicionamiento Global (GPS) e imágenes de detección remota, que permiten evaluar las propiedades del suelo y predecirlas basándose en factores ambientales.
 
 ```{r, include=FALSE}
 knitr::write_bib(c('posterdown', 'rmarkdown','pagedown'), 'packages.bib')
@@ -109,24 +111,15 @@ knitr::write_bib(c('posterdown', 'rmarkdown','pagedown'), 'packages.bib')
 
 ## Objectivo
 
-1. explorar la viabilidad de diseñar e implementar un enfoque de mapeo digital del suelo utilizando la plataforma Google Earth Engine (GEE) utilizando imágenes de reflectancia de alta resolución derivadas de una cámara térmica infrarroja y multiespectral.
-2. predecir las propiedades del suelo en la nube utilizando Google Earth Engine, (ii) el uso de índices espectrales y DSM mejoran la precisión de los valores predichos de las propiedades del suelo, (iii) los modelos ML son eficientes en la gestión de múltiples conjuntos de datos de predictores para realizar propiedades del suelo espacialmente consistentes mapas.
+Explorar la viabilidad de diseñar e implementar un enfoque de mapeo digital del suelo utilizando la plataforma Google Earth Engine (GEE) utilizando imágenes de reflectancia de alta resolución derivadas de una cámara térmica infrarroja y multiespectral (modelo Altum; MicaSense Inc.) volado a bordo de un UAV, en comparación con mediciones in situ de las propiedades físico-químicas del suelo (cal (%), arcilla (%), arena (%), conductividad eléctrica (CE) (mS/m), nitrógeno (N) (ppm) , fósforo (P) (ppm), potasio (K) (ppm), materia orgánica (MO) (%), aluminio (Al) (ppm) y pH).
 
 # Metodología
 
 Para desarrollar los modelos de distribución de parámetros espaciales del suelo, utilizamos los 14 índices espectrales multiespectrales comúnmente utilizados en el análisis de vegetación y suelo, que se muestran en la Tabla 1. Estos índices incluyen índices de vegetación, suelo y agua. Para cada punto muestreado se utilizó un buffer circular de 0.5 m de diámetro, donde los valores de reflectancia de cada píxel se convierten en una réplica de observación que contrasta con el valor de concentración del parámetro de interés del suelo. Los índices de vegetación se calcularon a través de las diferentes combinaciones de reflectancia y se compilaron como predictores junto con las bandas espectrales puras.
 
-$$
-E = mc^2
-$$
+***Now on to the results!***
 
-To reference a citation you can add your `.bib` file to the working directory and name it in the YAML metadata or generate an automated one as done here, then you only need to reference the label value in the `.bib` file. For example this package is built on top of the wonderful {pagedown} package and I will cite it at the end of this sentance using this in the rmd `[@R-pagedown]` [@R-pagedown].
-
-To get a better understanding of how to include features like these please refer to the {posterdown} [wiki](https://github.com/posterdown/wiki).
-
-**_Now on to the results!_**
-
-# Resultados y Discusión
+# Resultados
 
 Here you may have some figures to show off, bellow I have made a scatterplot with the infamous Iris dataset and I can even reference to the figure automatically like this, `Figure \@ref(fig:irisfigure)`, Figure \@ref(fig:irisfigure).
 
@@ -168,11 +161,4 @@ knitr::kable(
 
 Nuestro trabajo contribuye a la ciencia de vanguardia actual que destaca los beneficios del uso de imágenes de alta resolución recopiladas mediante sensores multiespectrales a bordo de vehículos aéreos no tripulados para agricultura de precisión y sistemas de información del suelo altamente detallados. Demostramos cómo los algoritmos de aprendizaje automático calculados en la nube utilizando Google Earth Engine pueden ser una solución para hacer que el procesamiento sea más accesible sin el uso de servidores físicos, para predecir las propiedades del suelo a un nivel detallado con resultados satisfactorios. Descubrimos que los índices multiespectrales derivados de UAV pueden mejorar la predicción de las propiedades del suelo cuando se combinan con modelos digitales de superficie construidos a partir de imágenes de UAV y que los predictores más importantes son SRI, GNDWI, NDWI y ExG. Por último, al comparar tres técnicas de aprendizaje automático (CART, RF y XGBoost), demostramos que los modelos CART funcionan mejor y son más consistentes espacialmente que los modelos RF y XGBoost para la mayoría de las propiedades del suelo que investigamos.
 
-# Referencias
-
-To reference a citation you can add your `.bib` file to the working directory and name it in the YAML metadata or generate an automated one as done here, then you only need to reference the label value in the `.bib` file. For example this package is built on top of the wonderful {pagedown} package and I will cite it at the end of this sentance using this in the rmd `[@R-pagedown]` [@R-pagedown].
-
-To get a better understanding of how to include features like these please refer to the {posterdown} [wiki](https://github.com/posterdown/wiki).
-
-
-
+# Referencias Bibliográficas
