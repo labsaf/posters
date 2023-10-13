@@ -5,7 +5,7 @@ title: '**Implementación de computación en la nube para el mapeo digital de pr
 title_textsize: "60pt"
 poster_height: "120cm"
 poster_width: "90cm"
-column_numbers: 2
+column_numbers: 3
 author:
   - name: '**S. Pizarro**'
     affil: 1,2
@@ -59,7 +59,7 @@ output:
     self_contained: false
     pandoc_args: --mathjax
     number_sections: false
-bibliography: references.bib
+bibliography: [packages.bib, references.bib]
 csl: mdpi.csl
 link-citations: true
 #knit: pagedown::chrome_print
@@ -115,22 +115,29 @@ Explorar la viabilidad de diseñar e implementar un enfoque de mapeo digital del
 
 # Metodología
 
-En la siguiente figura se muestra el procedimiento seguido para el desarrollo del estudio.
+![](resources/remotes_g001.png){#flow width="1100"}
+Figura 1. Ubicación del área de estudio, Santa Ana, Junín (Perú)
+
 
 ![](resources/remotes_g002.png){#flow width="1100"}
+
+<p style="font-family: times, serif; font-size:11pt; font-style:italic">
+Simple Ratio Red/Blue Iron Oxide (SRI), Normalized Difference Vegetation Index (NDVI), Enhanced Vegetation Index (EVI), Normalized Difference Water Index (NDWI), Soil Adjusted Vegetation Index (SAVI), Green Normalized Difference Vegetation Index (GNDVI), Difference Vegetation Index (DVI), Optimized Soil Adjusted Vegetation Index (OSAVI), Excess Green index (ExG), Normalized Difference Index (NDI), Red-edge Normalized Difference Vegetation Index (NDRE), Chlorophyll vegetation index (CVI).
+</p>
 
 # Resultados
 
 ![](resources/remotes_g007_B.png){width="1024"}
 
-# Conclusiones
 
-Este trabajo explora cómo los sensores multiespectrales a bordo de vehículos aéreos no tripulados (UAV) pueden mejorar los sistemas de información de la tierra y la agricultura de precisión. Los algoritmos de aprendizaje automático (CART, RF y XGBoost) utilizando Google Earth Engine logran que el procesamiento sea más accesible sin el uso de servidores físicos. Como mejores predictores se tienen a SRI, GNDWI, NDWI y ExG mientras que el modelo CART resultó ser el algoritmo más eficiente y consistente espacialmente para la mayoría de las propiedades de suelo. Estos resultados sugieren que el uso de algoritmos de aprendizaje automático con datos reales es eficaz para la estimación espacial de las propiedades del suelo usando imágenes multiespectrales basadas en UAV, lo que puede contribuir a una gestión más eficaz de los cultivos y campos agrícolas.
 
-# Agradecimientos
+
+# Conclusiones {#sec-conclusiones}
+
+Este trabajo explora cómo los sensores multiespectrales a bordo de vehículos aéreos no tripulados (UAV) pueden mejorar los sistemas de información de la tierra y la agricultura de precisión. Los algoritmos de aprendizaje automático (CART, RF y XGBoost) utilizando Google Earth Engine logran que el procesamiento sea más accesible sin el uso de servidores físicos. Como mejores predictores se tienen a SRI, GNDVI, NDWI y ExG mientras CART resultó ser el algoritmo más eficiente y consistente espacialmente para la mayoría de las propiedades del suelo. Estos resultados sugieren que el uso de algoritmos de aprendizaje automático con datos reales es eficaz para la estimación espacial de las propiedades del suelo usando imágenes multiespectrales basadas en UAV, lo que puede contribuir a una gestión más eficaz de los cultivos y campos agrícolas.
+
+# Agradecimientos {#sec-agradecimientos}
 
 Los equipos LABSAF y AGPRES de Santa Ana por proporcionar infraestructura y equipos para la recolección de datos del suelo y análisis de laboratorio.
 
-# Referencias Bibliográficas
-
-# 
+# Referencias Bibliográficas {#sec-referencias-bibliográficas}
