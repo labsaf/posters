@@ -5,7 +5,7 @@ title: '**Implementación de computación en la nube para el mapeo digital de pr
 title_textsize: "60pt"
 poster_height: "120cm"
 poster_width: "90cm"
-column_numbers: 3
+column_numbers: 2
 author:
   - name: '**S. Pizarro**'
     affil: 1,2
@@ -109,56 +109,28 @@ Los suelos agrícolas son sistemas heterogéneos importantes dentro del contexto
 knitr::write_bib(c('posterdown', 'rmarkdown','pagedown'), 'packages.bib')
 ```
 
-## Objectivo
+# Objectivo
 
 Explorar la viabilidad de diseñar e implementar un enfoque de mapeo digital del suelo utilizando la plataforma Google Earth Engine (GEE) utilizando imágenes de reflectancia de alta resolución derivadas de una cámara térmica infrarroja y multiespectral (modelo Altum; MicaSense Inc.) volado a bordo de un UAV, en comparación con mediciones in situ de las propiedades físico-químicas del suelo (cal (%), arcilla (%), arena (%), conductividad eléctrica (CE) (mS/m), nitrógeno (N) (ppm) , fósforo (P) (ppm), potasio (K) (ppm), materia orgánica (MO) (%), aluminio (Al) (ppm) y pH).
 
 # Metodología
 
-Para desarrollar los modelos de distribución de parámetros espaciales del suelo, utilizamos los 14 índices espectrales multiespectrales comúnmente utilizados en el análisis de vegetación y suelo, que se muestran en la Tabla 1. Estos índices incluyen índices de vegetación, suelo y agua. Para cada punto muestreado se utilizó un buffer circular de 0.5 m de diámetro, donde los valores de reflectancia de cada píxel se convierten en una réplica de observación que contrasta con el valor de concentración del parámetro de interés del suelo. Los índices de vegetación se calcularon a través de las diferentes combinaciones de reflectancia y se compilaron como predictores junto con las bandas espectrales puras.
+En la siguiente figura se muestra el procedimiento seguido para el desarrollo del estudio.
 
-***Now on to the results!***
+![](resources/remotes_g002.png){#flow width="1100"}
 
 # Resultados
 
-Here you may have some figures to show off, bellow I have made a scatterplot with the infamous Iris dataset and I can even reference to the figure automatically like this, `Figure \@ref(fig:irisfigure)`, Figure \@ref(fig:irisfigure).
-
-```{r, irisfigure, fig.cap='Here is a caption for the figure. This can be added by using the "fig.cap" option in the r code chunk options, see this [link](https://yihui.name/knitr/options/#plots) from the legend himself, [Yihui Xie](https://twitter.com/xieyihui).', out.width="80%"}
-par(mar=c(2,2,0,1))
-plot(x = iris$Sepal.Length, y = iris$Sepal.Width,
-     col = iris$Species, pch = 19, xlab = "Sepal Length",
-     ylab = "Sepal Width")
-```
-
-Maybe you want to show off some of that fancy code you spent so much time on to make that figure, well you can do that too! Just use the `echo=TRUE` option in the r code chunk options, Figure \@ref(fig:myprettycode)!
-
-```{r myprettycode, echo=TRUE, fig.cap='Boxplots, so hot right now!', fig.height=6, out.width="80%"}
-#trim whitespace
-par(mar=c(2,2,0,0))
-#plot boxplots
-boxplot(iris$Sepal.Width~iris$Species,
-        col = "#008080", 
-        border = "#0b4545",
-        ylab = "Sepal Width (cm)",
-        xlab = "Species")
-```
-
-How about a neat table of data? See, Table \@ref(tab:iristable):
-
-```{r, iristable}
-knitr::kable(
-  iris[1:15,1:5], format = "html",
-  caption = "A table made with the **knitr::kable** function.",
-  align = "c", col.names = c("Sepal <br> Length",
-                             "Sepal <br> Width",
-                             "Petal <br> Length",
-                             "Petal <br> Width",
-                             "Species"),
-  escape = FALSE)
-```
+![](resources/remotes_g007_B.png){width="1024"}
 
 # Conclusiones
 
 Nuestro trabajo contribuye a la ciencia de vanguardia actual que destaca los beneficios del uso de imágenes de alta resolución recopiladas mediante sensores multiespectrales a bordo de vehículos aéreos no tripulados para agricultura de precisión y sistemas de información del suelo altamente detallados. Demostramos cómo los algoritmos de aprendizaje automático calculados en la nube utilizando Google Earth Engine pueden ser una solución para hacer que el procesamiento sea más accesible sin el uso de servidores físicos, para predecir las propiedades del suelo a un nivel detallado con resultados satisfactorios. Descubrimos que los índices multiespectrales derivados de UAV pueden mejorar la predicción de las propiedades del suelo cuando se combinan con modelos digitales de superficie construidos a partir de imágenes de UAV y que los predictores más importantes son SRI, GNDWI, NDWI y ExG. Por último, al comparar tres técnicas de aprendizaje automático (CART, RF y XGBoost), demostramos que los modelos CART funcionan mejor y son más consistentes espacialmente que los modelos RF y XGBoost para la mayoría de las propiedades del suelo que investigamos.
 
+# Agradecimientos
+
+Los equipos LABSAF y AGPRES de Santa Ana por proporcionar infraestructura y equipos para la recolección de datos del suelo y análisis de laboratorio.
+
 # Referencias Bibliográficas
+
+# 
