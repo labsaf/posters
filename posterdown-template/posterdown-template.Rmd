@@ -138,6 +138,6 @@ Este trabajo explora cómo los sensores multiespectrales a bordo de vehículos a
 
 # Agradecimientos {#sec-agradecimientos}
 
-Los equipos LABSAF y AGPRES de Santa Ana por proporcionar infraestructura y equipos para la recolección de datos del suelo y análisis de laboratorio.
+Los equipos LABSAF y AGPRES de Santa Ana por proporcionar infraestructura y equipos para la recolección de datos del suelo y análisis de laboratorio.Agradecemos al proyecto STC “Agricultura de precisión: determinación de biomasa aérea y rendimiento de cultivos de maíz (Zea mays) y trigo (Triticum aestivum) mediante aprendizaje automático aplicado a imágenes de vehículos aéreos no tripulados”. CIA y al Vicerrectorado de Investigación de la UNTRM.
 
 # Referencias Bibliográficas {#sec-referencias-bibliográficas}
