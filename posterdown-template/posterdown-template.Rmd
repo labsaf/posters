@@ -53,7 +53,7 @@ affiliation:
   - num: 9
     address: Facultad de Ingeniería y Ciencias Agrarias, Universidad Nacional Toribio Rodríguez de Mendoza de Amazonas (UNTRM), Chachapoyas, Amazonas, Peru.   
 main_findings: "<img src='resources/header.png'>"
-logocenter_name: https&#58;//raw.githubusercontent.com/labsaf/posterdown-template/main/posterdown-template/resources/footer.jpg
+logocenter_name:  'resources/footer.png'
 output: 
   posterdown::posterdown_betterport:
     self_contained: false
@@ -62,7 +62,7 @@ output:
 bibliography: [packages.bib, references.bib]
 csl: mdpi.csl
 link-citations: true
-#knit: pagedown::chrome_print
+knit: pagedown::chrome_print
 ---
 
 ```{=html}
@@ -91,6 +91,7 @@ link-citations: true
 
 </style>
 ```
+
 ```{r, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE,
                       warning = FALSE,
@@ -100,12 +101,6 @@ knitr::opts_chunk$set(echo = FALSE,
                       out.width = "100%")
 options(knitr.table.format = "html") 
 ```
-
-<h5 style="text-align: center;">
-
-*DOI:* [**https://doi.org/10.3390/rs15123203**](https://doi.org/10.3390/rs15123203)
-
-</h5>
 
 # Introducción
 
