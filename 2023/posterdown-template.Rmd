@@ -137,11 +137,11 @@ Simple Ratio Red/Blue Iron Oxide (SRI), Normalized Difference Vegetation Index (
 
 Se seleccionaron los mejores modelos de regresión para luego crear mapas de la distribución cuantitativa espacial de cada propiedad del suelo mostrando la importancia relativa de los predictores (Figuras 3 y 4) .
 
-![](resources/remotes-g008b.png){width="1024"}
+![](resources/remotes-g003.png){width="1024"}
 
 *Figura 3. Mapa de predicción para pH (izquierda) e importancia relativa de los predictores (derecha).*
 
-![](resources/remotes_g007_B.png){width="1024"}
+![](resources/remotes_g004.png){width="1024"}
 
 *Figura 4. Mapas de predicción para N, P y K (izquierda) e importancia relativa de los predictores (derecha).*
 
