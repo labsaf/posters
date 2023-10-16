@@ -62,7 +62,7 @@ output:
 bibliography: [packages.bib, references.bib]
 csl: mdpi.csl
 link-citations: true
-knit: pagedown::chrome_print
+#knit: pagedown::chrome_print
 ---
 
 ```{=html}
@@ -100,10 +100,13 @@ knitr::opts_chunk$set(echo = FALSE,
                       out.width = "100%")
 options(knitr.table.format = "html") 
 ```
+---
+
+<h5 style="text-align: center;"> *DOI:* [**https://doi.org/10.3390/rs15123203**](https://doi.org/10.3390/rs15123203)</h5>
 
 # Introducción
 
-Los suelos agrícolas tienen propiedades físicas y químicas heterogéneos en el contexto espacial importantes dentro del contexto de la producción agrícola, caracterizados por distintas propiedades físicas y químicas que afectan el desarrollo y crecimiento de los cultivos. La información detallada de los suelos permite delimitar unidades homogéneas de gestión, de las que se extrae la información necesaria para garantizar la salud de los cultivos. Dicha información se puede adquirir mediante análisis de laboratorio, aunque recientemente, se han aplicado alternativas como la teledetección que nos permite evaluar el potencial productivo agrícola reduciendo costo, tiempo y a mayor escala [@das2015; @Srinet2020]. Estas tecnologías se apoyan en el uso de sistemas de información geográfica (SIG), Sistemas de Posicionamiento Global (GPS) e imágenes de detección remota, que permiten evaluar las propiedades del suelo y predecirlas basándose en predictores ambientales.
+Los suelos agrícolas tienen propiedades físicas y químicas heterogéneos en el contexto espacial que determinan el desarrollo y crecimiento de los cultivos. La información detallada de las propiedades de los suelos permite delimitar su aptitud y unidades de manejo que garanticen la salud de los cultivos y el éxito de la producción. Dicha información se puede adquirir mediante análisis detallados de laboratorio, las cuales en complemento con técnicas de sensoramiento remoto nos permite evaluar el potencial productivo agrícola a escala espacial detallada, optimizando recursos y el tiempo necesario para la obtención de un número mayor de muestras[@das2015; @Srinet2020]. Las tecnologías que soportan este enfoque de mapeo se basa en el uso de sistemas de información geográfica (SIG), Sistemas de Posicionamiento Global (GPS), e imágenes multiespectrales de alta resolución colectadas con UAS, que permiten espacializar las propiedades de suelos agrícolas en alta resolución utilizando técnicas de computación en la nube.
 
 ```{r, include=FALSE}
 knitr::write_bib(c('posterdown', 'rmarkdown','pagedown'), 'packages.bib')
