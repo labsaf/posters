@@ -100,9 +100,12 @@ knitr::opts_chunk$set(echo = FALSE,
                       out.width = "100%")
 options(knitr.table.format = "html") 
 ```
----
 
-<h5 style="text-align: center;"> *DOI:* [**https://doi.org/10.3390/rs15123203**](https://doi.org/10.3390/rs15123203)</h5>
+<h5 style="text-align: center;">
+
+*DOI:* [**https://doi.org/10.3390/rs15123203**](https://doi.org/10.3390/rs15123203)
+
+</h5>
 
 # Introducción
 
