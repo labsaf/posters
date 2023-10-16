@@ -62,7 +62,7 @@ output:
 bibliography: [packages.bib, references.bib]
 csl: mdpi.csl
 link-citations: true
-#knit: pagedown::chrome_print
+knit: pagedown::chrome_print
 ---
 
 ```{=html}
@@ -103,41 +103,52 @@ options(knitr.table.format = "html")
 
 # Introducción
 
-Los suelos agrícolas son sistemas heterogéneos importantes dentro del contexto de la producción agrícola, caracterizados por distintas propiedades físicas y químicas que afectan el desarrollo y crecimiento de los cultivos. La información detallada de los suelos permite delimitar unidades homogéneas de gestión, de las que se extrae la información necesaria para garantizar la salud de los cultivos. Dicha información se puede adquirir mediante análisis de laboratorio, aunque recientemente, se han aplicado alternativas como la teledetección que nos permite evaluar el potencial productivo agrícola reduciendo costo, tiempo y a mayor escala [@das2015; @Srinet2020]. Estas tecnologías se apoyan en el uso de sistemas de información geográfica (SIG), Sistemas de Posicionamiento Global (GPS) e imágenes de detección remota, que permiten evaluar las propiedades del suelo y predecirlas basándose en factores ambientales.
+Los suelos agrícolas tienen propiedades físicas y químicas heterogéneos en el contexto espacial importantes dentro del contexto de la producción agrícola, caracterizados por distintas propiedades físicas y químicas que afectan el desarrollo y crecimiento de los cultivos. La información detallada de los suelos permite delimitar unidades homogéneas de gestión, de las que se extrae la información necesaria para garantizar la salud de los cultivos. Dicha información se puede adquirir mediante análisis de laboratorio, aunque recientemente, se han aplicado alternativas como la teledetección que nos permite evaluar el potencial productivo agrícola reduciendo costo, tiempo y a mayor escala [@das2015; @Srinet2020]. Estas tecnologías se apoyan en el uso de sistemas de información geográfica (SIG), Sistemas de Posicionamiento Global (GPS) e imágenes de detección remota, que permiten evaluar las propiedades del suelo y predecirlas basándose en predictores ambientales.
 
 ```{r, include=FALSE}
 knitr::write_bib(c('posterdown', 'rmarkdown','pagedown'), 'packages.bib')
 ```
 
-# Objectivo
+# Objetivo
 
-Explorar la viabilidad de diseñar e implementar un enfoque de mapeo digital del suelo utilizando la plataforma Google Earth Engine (GEE) utilizando imágenes de reflectancia de alta resolución derivadas de una cámara térmica infrarroja y multiespectral (modelo Altum; MicaSense Inc.) volado a bordo de un UAV, en comparación con mediciones in situ de las propiedades físico-químicas del suelo (cal (%), arcilla (%), arena (%), conductividad eléctrica (CE) (mS/m), nitrógeno (N) (ppm) , fósforo (P) (ppm), potasio (K) (ppm), materia orgánica (MO) (%), aluminio (Al) (ppm) y pH).
+Implementar un enfoque de mapeo digital de propiedades físicos químicas de suelos agrícolas utilizando técnicas de computación en la nube (Google Earth Engine-GEE) en el procesamiento de imágenes multiespectrales de alta resolución tomadas con sistemas UAV (modelo Altum; MicaSense Inc.), entrenadas con algoritmos de inteligencia artificial, con la determinación de las propiedades físico-químicas del suelo (limo (%), arcilla (%), arena (%), conductividad eléctrica (CE) (mS/m), nitrógeno (N) (ppm) , fósforo (P) (ppm), potasio (K) (ppm), materia orgánica (MO) (%), aluminio (Al) (ppm) y pH) en laboratorio.
 
 # Metodología
 
-![](resources/remotes_g001.png){#flow width="1100"}
-Figura 1. Ubicación del área de estudio, Santa Ana, Junín (Perú)
+El estudio se realizó en la Estación Experimental Agrícola de Santa Ana del Instituto Nacional de Innovación Agraria (INIA) (75°13′17.60″W, 12°0′42.36″S ), ubicado en el distrito de El Tambo, provincia de Huancayo y departamento de Junín (Perú). La Estación tiene un rango altitudinal de 3303 a 3325 m.s.n.m., con una fisiografía dominada por el paisaje llano del valle montañoso. Los campos agrícolas de donde se registraron los datos cubren 49.83 ha de 67.08 ha distribuidas en 42 parcelas.
 
+![](resources/remotes_g001.png){#flow width="1100"} *Figura 1. Ubicación del área de estudio, Santa Ana, Junín (Perú)*
 
-![](resources/remotes_g002.png){#flow width="1100"}
+El marco metodológico empleado en este estudio se presenta en la Figura 2 y se describe con más detalle en las siguientes cinco subsecciones de métodos:
 
-<p style="font-family: times, serif; font-size:11pt; font-style:italic">
+![](resources/remotes_g002.png){width="1100"}
+
+<font style="font-family: times, serif; font-size:12pt; font-style:italic">
+
 Simple Ratio Red/Blue Iron Oxide (SRI), Normalized Difference Vegetation Index (NDVI), Enhanced Vegetation Index (EVI), Normalized Difference Water Index (NDWI), Soil Adjusted Vegetation Index (SAVI), Green Normalized Difference Vegetation Index (GNDVI), Difference Vegetation Index (DVI), Optimized Soil Adjusted Vegetation Index (OSAVI), Excess Green index (ExG), Normalized Difference Index (NDI), Red-edge Normalized Difference Vegetation Index (NDRE), Chlorophyll vegetation index (CVI).
-</p>
+
+</font>
+
+*Figura 2. Representación del marco metodológico utilizado en este estudio*
 
 # Resultados
 
+Se seleccionaron los mejores modelos de regresión para luego crear mapas de la distribución cuantitativa espacial de cada propiedad del suelo mostrando la importancia relativa de los predictores (Figuras 3 y 4) .
+
+![](resources/remotes-g008b.png){width="1024"}
+
+*Figura 3. Mapa de predicción para pH (izquierda) e importancia relativa de los predictores (derecha).*
+
 ![](resources/remotes_g007_B.png){width="1024"}
 
-
-
+*Figura 4. Mapas de predicción para N, P y K (izquierda) e importancia relativa de los predictores (derecha).*
 
 # Conclusiones {#sec-conclusiones}
 
-Este trabajo explora cómo los sensores multiespectrales a bordo de vehículos aéreos no tripulados (UAV) pueden mejorar los sistemas de información de la tierra y la agricultura de precisión. Los algoritmos de aprendizaje automático (CART, RF y XGBoost) utilizando Google Earth Engine logran que el procesamiento sea más accesible sin el uso de servidores físicos. Como mejores predictores se tienen a SRI, GNDVI, NDWI y ExG mientras CART resultó ser el algoritmo más eficiente y consistente espacialmente para la mayoría de las propiedades del suelo. Estos resultados sugieren que el uso de algoritmos de aprendizaje automático con datos reales es eficaz para la estimación espacial de las propiedades del suelo usando imágenes multiespectrales basadas en UAV, lo que puede contribuir a una gestión más eficaz de los cultivos y campos agrícolas.
+El uso de los sensores multiespectrales a bordo de vehículos aéreos no tripulados (UAV) pueden mejorar los sistemas de información de la tierra y la agricultura de precisión. Los algoritmos de aprendizaje automático (CART, RF y XGBoost) utilizando Google Earth Engine [@Zhou2023; @Padarian2015] logran que el procesamiento sea más accesible sin el uso de servidores físicos en el mapeo de propiedades físico-químicas. Como mejores predictores se tienen a estar asociados a índices espectrales (SRI, GNDVI, NDWI y ExG), siendo CART el algoritmo más eficiente y consistente espacialmente para la mayoría de las propiedades del suelo. Estos resultados sugieren que el uso de algoritmos de aprendizaje automático con datos reales es eficaz para la estimación espacial de las propiedades del suelo [@Forkuor2017; @Shabou2015] usando imágenes multiespectrales basadas en UAV, lo que puede contribuir a una gestión más eficaz de los cultivos y campos agrícolas.
 
 # Agradecimientos {#sec-agradecimientos}
 
-Los equipos LABSAF y AGPRES de Santa Ana por proporcionar infraestructura y equipos para la recolección de datos del suelo y análisis de laboratorio.Agradecemos al proyecto STC “Agricultura de precisión: determinación de biomasa aérea y rendimiento de cultivos de maíz (Zea mays) y trigo (Triticum aestivum) mediante aprendizaje automático aplicado a imágenes de vehículos aéreos no tripulados”. CIA y al Vicerrectorado de Investigación de la UNTRM.
+Los equipos LABSAF y AGPRES de Santa Ana por proporcionar infraestructura y equipos para la recolección de datos del suelo y análisis de laboratorio. Agradecemos a STC-CGIAR y al Vicerrectorado de Investigación de la UNTRM.
 
 # Referencias Bibliográficas {#sec-referencias-bibliográficas}
