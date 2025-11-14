@@ -1,0 +1,11 @@
+project:
+  type: docposter
+  title: "Soil Mapping Poster 2025"
+  # Uncomment to convert HTML to PDF (requires Chrome/Chromium)
+  # post-render:
+  #   - quarto run chrome_pdf.R
+
+format:
+  docposter-html:
+    fill-page: true
+    embed-resources: true
