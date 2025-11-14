@@ -1,0 +1,97 @@
+/* Custom CSS for docposter styling
+   Use this file to override styles in the docposter template
+   Keep your customizations separate from the package defaults
+*/
+
+/* Poster background and colors */
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #3498db;
+  --accent-color: #e74c3c;
+  --background-color: #ffffff;
+  --text-color: #333333;
+}
+
+/* Main poster container */
+.poster {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Header styling */
+h1 {
+  color: var(--primary-color);
+  border-bottom: 3px solid var(--secondary-color);
+  padding-bottom: 0.5em;
+}
+
+h2 {
+  color: var(--primary-color);
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+/* Content blocks */
+.block {
+  background-color: #f8f9fa;
+  border-left: 4px solid var(--secondary-color);
+  padding: 1em;
+  margin-bottom: 1em;
+  border-radius: 4px;
+}
+
+/* Figure captions */
+figcaption, .figure-caption {
+  font-style: italic;
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 0.5em;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* Lists */
+ul, ol {
+  padding-left: 1.5em;
+  line-height: 1.6;
+}
+
+/* Links */
+a {
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Author affiliations */
+.author {
+  font-size: 0.9em;
+  margin-bottom: 0.5em;
+}
+
+.affiliation {
+  font-size: 0.8em;
+  font-style: italic;
+  color: #666;
+}
+
+/* References section */
+#refs {
+  font-size: 0.8em;
+  line-height: 1.4;
+}
+
+/* Responsive adjustments */
+@media print {
+  .poster {
+    background-color: white;
+  }
+}
